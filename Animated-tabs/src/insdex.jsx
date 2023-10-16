@@ -31,7 +31,7 @@ export default function AnimatedTabs() {
                   borderRadius: 9999,
                 }}
                 // 增加彈簧效果
-                transition={{ type: "spring", duration: 5 }}
+                transition={{ type: "spring", duration: 2 }}
               />
             )}
 
