@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="spacer"></div>
+
+    <div class="spacer">
+      <div class="animated-element">
+        <h2>Animate me</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+          possimus.
+        </p>
+      </div>
+    </div>
+    <div class="spacer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          // 選取元素目標
+          trigger: ".animated-element",
+          // 当目标元素的顶部与视口中心对齐时触发动画 後面作用區域拉寬，動畫作用時間發長
+          start: "-50% center",
+          // 当目标元素的底部与视口中心对齐时结束动画 後面作用區域拉寬，動畫作用時間發長
+          end: "500% center",
+          //   使动画與滚动觸發位置同步，選false就不會有作用
+          scrub: false,
+          markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      tl.to(".animated-element", {
+        x: 800,
+        duration: 0.5,
+      });
+
+      // smooth scroll
+      const lenis = new Lenis();
+
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>
