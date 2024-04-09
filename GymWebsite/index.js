@@ -25,11 +25,14 @@ navLinks.addEventListener("click", (e) => {
   menuBtnIcon.setAttribute("class", "ri-menu-line");
 });
 
+// 控制標題浮現
 const scrollRevealOption = {
   distance: "50px",
   origin: "bottom",
   duration: 1000,
 };
+
+// ScrollReveal().reveal(selector, options);: 这是ScrollReveal的基本用法。
 
 ScrollReveal().reveal(".header_content h1", {
   ...scrollRevealOption,
@@ -45,4 +48,14 @@ ScrollReveal().reveal(".header_content p", {
 ScrollReveal().reveal(".header_content .header_btn", {
   ...scrollRevealOption,
   delay: 1500,
+});
+
+ScrollReveal().reveal(".about_card", {
+  duration: 1000,
+  interval: 500,
+});
+
+ScrollReveal().reveal(".trainer_card", {
+  ...scrollRevealOption,
+  interval: 500,
 });
