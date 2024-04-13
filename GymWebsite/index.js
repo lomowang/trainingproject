@@ -59,3 +59,15 @@ ScrollReveal().reveal(".trainer_card", {
   ...scrollRevealOption,
   interval: 500,
 });
+
+ScrollReveal().reveal(".blog_card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});

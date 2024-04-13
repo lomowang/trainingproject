@@ -7,6 +7,10 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Gym Website</title>
   </head>
@@ -276,7 +280,174 @@
         </div>
       </div>
     </section>
+    <section class="section_container clirnt_container" id="client">
+      <h2 class="section_header">OUT TESTIMONIALS</h2>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="client_card">
+              <img src="assets/client-1.jpg" alt="client" />
+              <div><i class="ri-double-quotes-r"></i></div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                molestiae voluptate omnis illo quod rem dignissimos expedita, et
+                ipsam pariatur, incidunt iusto, autem praesentium qui porro.
+                Fuga iste doloribus nisi?
+              </p>
+              <h4>Shrah Johnson</h4>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client_card">
+              <img src="assets/client-2.jpg" alt="client" />
+              <div><i class="ri-double-quotes-r"></i></div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                molestiae voluptate omnis illo quod rem dignissimos expedita, et
+                ipsam pariatur, incidunt iusto, autem praesentium qui porro.
+                Fuga iste doloribus nisi?
+              </p>
+              <h4>Michael Wong</h4>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client_card">
+              <img src="assets/client-3.jpg" alt="client" />
+              <div><i class="ri-double-quotes-r"></i></div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                molestiae voluptate omnis illo quod rem dignissimos expedita, et
+                ipsam pariatur, incidunt iusto, autem praesentium qui porro.
+                Fuga iste doloribus nisi?
+              </p>
+              <h4>Emily Davis</h4>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="blog" id="blog">
+      <div class="section_container blog_container">
+        <h2 class="section_header">BLOGS</h2>
+        <div class="blog_grid">
+          <div class="blog_card">
+            <img src="assets/blog-1.jpg" alt="blog" />
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+              obcaecati?
+            </h4>
+          </div>
+          <div class="blog_card">
+            <img src="assets/blog-2.jpg" alt="blog" />
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+              obcaecati?
+            </h4>
+          </div>
+          <div class="blog_card">
+            <img src="assets/blog-3.jpg" alt="blog" />
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+              obcaecati?
+            </h4>
+          </div>
+          <div class="blog_card">
+            <img src="assets/blog-4.jpg" alt="blog" />
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+              obcaecati?
+            </h4>
+          </div>
+        </div>
+        <div class="blog_btn">
+          <button class="btn btn_primary">VIEW ALL</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section_container logo_banner">
+      <img src="assets/banner-1.png" alt="banner" />
+      <img src="assets/banner-2.png" alt="banner" />
+      <img src="assets/banner-3.png" alt="banner" />
+      <img src="assets/banner-4.png" alt="banner" />
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="section_container footer_container">
+        <div class="footer_col">
+          <div class="footer_logo">
+            <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+          </div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed,
+            reprehenderit?
+          </p>
+          <ul class="footer_links">
+            <li>
+              <a href="">
+                <span><i class="ri-map-pin-2-fill"></i></span>
+                123 Main Street <br />Sunrise Valley, Evergreen Heights
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span><i class="ri-phone-fill"></i></span>
+                123 Main Street <br />Sunrise Valley, Evergreen Heights
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span><i class="ri-mail-fill"></i></span>
+                frees1102@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <h4>GALLERY</h4>
+          <div class="gallery_grid">
+            <img src="assets/gallery-1.jpg" alt="gallery" />
+            <img src="assets/gallery-2.jpg" alt="gallery" />
+            <img src="assets/gallery-3.jpg" alt="gallery" />
+            <img src="assets/gallery-4.jpg" alt="gallery" />
+            <img src="assets/gallery-5.jpg" alt="gallery" />
+            <img src="assets/gallery-6.jpg" alt="gallery" />
+            <img src="assets/gallery-7.jpg" alt="gallery" />
+            <img src="assets/gallery-8.jpg" alt="gallery" />
+            <img src="assets/gallery-9.jpg" alt="gallery" />
+          </div>
+        </div>
+        <div class="footer_col">
+          <h4>NEWSLETTER</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+            delectus quaerat deserunt explicabo, voluptas qui saepe quos iure
+            nam! Deleniti!
+          </p>
+          <form action="/">
+            <input type="text" placeholder="Enter Email" />
+            <button class="btn btn_primary">SEND</button>
+          </form>
+          <div class="footer_socials">
+            <a href=""><i class="ri-facebook-fill"></i></a>
+            <a href=""><i class="ri-twitter-fill"></i></a>
+            <a href=""><i class="ri-youtube-fill"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer_bar">
+        copyright © 2024 web Design Master. All rights reserved
+      </div>
+    </footer>
+
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
