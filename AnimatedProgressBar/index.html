@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <div class="section">
+        <div class="section_wrapper">
+          <div class="section_content">
+            <!-- Q1 -->
+            <div class="section_content_item">
+              <h1 class="section_content_item_title">Q1-BRAINSTORM BLITZ</h1>
+              <p class="section_content_item_description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
+                laborum natus voluptatem officia at cumque id minima porro nisi
+                molestias.
+              </p>
+            </div>
+            <!-- Q2 -->
+            <div class="section_content_item">
+              <h1 class="section_content_item_title">Q2-BRAINSTORM BLITZ</h1>
+              <p class="section_content_item_description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
+                laborum natus voluptatem officia at cumque id minima porro nisi
+                molestias.
+              </p>
+            </div>
+            <!-- Q3 -->
+            <div class="section_content_item">
+              <h1 class="section_content_item_title">Q3-BRAINSTORM BLITZ</h1>
+              <p class="section_content_item_description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
+                laborum natus voluptatem officia at cumque id minima porro nisi
+                molestias.
+              </p>
+            </div>
+            <!-- Q4 -->
+            <div class="section_content_item">
+              <h1 class="section_content_item_title">Q4-BRAINSTORM BLITZ</h1>
+              <p class="section_content_item_description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
+                laborum natus voluptatem officia at cumque id minima porro nisi
+                molestias.
+              </p>
+            </div>
+          </div>
+
+          <div class="section_bar">
+            <div class="section_bar_label grid">
+              <div class="section_bar_label_item">
+                <span>2024 &#x26AC; Q1</span>
+              </div>
+              <div class="section_bar_label_item">
+                <span>2024 &#x26AC; Q2</span>
+              </div>
+              <div class="section_bar_label_item">
+                <span>2024 &#x26AC; Q3</span>
+              </div>
+              <div class="section_bar_label_item">
+                <span>2024 &#x26AC; Q4</span>
+              </div>
+            </div>
+
+            <div class="section_bar_dots grid">
+              <div class="section_bar_line_dot"></div>
+              <div class="section_bar_line_dot"></div>
+              <div class="section_bar_line_dot"></div>
+              <div class="section_bar_line_dot"></div>
+            </div>
+            <div class="section_bar_line">
+              <div class="section_bar_line_empty"></div>
+              <div class="section_bar_line_filled"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section_bg">
+          <video
+            src="./media/lomo.mp4"
+            class="section_bg_video"
+            loop
+            muted
+            autoplay
+          ></video>
+        </div>
+      </div>
+    </main>
+
+    <script type="module">
+      import Lenis from "https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42";
+
+      let lenis;
+      let percentage;
+
+      const progressBar = {
+        element: document.querySelector(".section_bar"),
+        line: document.querySelector(".section_bar_line_filled"),
+        dots: document.querySelectorAll(".section_bar_line_dot"),
+        labels: document.querySelectorAll(".section_bar_label_item"),
+      };
+
+      const progressBarOffset =
+        (progressBar.element.getBoundingClientRect().left / window.innerWidth) *
+        100;
+      const video = document.querySelector(".section_bg_video");
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+      const initLenis = () => {
+        lenis = new Lenis({
+          lerp: 0.05,
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          smoothTouch: true,
+          touchMultiplier: 2,
+          content: document.querySelector(".section_content"),
+          orientation: isMobile ? "vertical" : "horizontal",
+        });
+
+        lenis.on("scroll", ({ scroll, limit }) => progress(scroll, limit));
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      };
+
+      const activateKeypoints = (keypoint, element) => {
+        if (percentage >= keypoint) {
+          element.classList.add("active");
+        } else {
+          element.classList.remove("active");
+        }
+      };
+
+      const progress = (scroll, limit) => {
+        let keypoints = [];
+        let scrollPercentage = (scroll / limit) * 100;
+
+        progressBar.dots.forEach((dot) => {
+          const dotPosition = dot.getBoundingClientRect().left;
+          const keypointPercentage =
+            ((dotPosition - progressBarOffset) / window.innerWidth) * 100;
+          keypoints.push(keypointPercentage);
+        });
+
+        percentage =
+          keypoints[0] + (scrollPercentage * (100 - keypoints[0])) / 100;
+
+        progressBar.line.style.width = `${percentage}%`;
+        progressBar.dots.forEach((dot, index) =>
+          activateKeypoints(keypoints[index], dot)
+        );
+        progressBar.labels.forEach((label, index) =>
+          activateKeypoints(keypoints[index], label)
+        );
+      };
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initLenis();
+        lenis.scrollTo(0);
+        video.play();
+      });
+    </script>
+  </body>
+</html>
